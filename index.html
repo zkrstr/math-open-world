@@ -1,19 +1,75 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-	<meta charset='UTF-8'>
-	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-	<link rel='icon' type='image/x-icon' href='images/favicon.ico'>
-	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript" async
-  src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-	<title>MOW</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" href="images/favicon.ico" />
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Math Open World</title>
 </head>
 <body>
-	<canvas id='game'></canvas>
-	<script type='module' src='script.js' defer></script>
+  
+
+  <!-- PAGE D’ACCUEIL : OVERLAY -->
+  <div class="landing-container">
+    <!-- Titre en 3D -->
+    <h1 class="title-3d">Math Open World</h1>
+    <!-- Sous-titre -->
+    <p class="subtitle">Jeu de mathématiques</p>
+
+    
+    <input type="text" id="username" class="username-input" placeholder="Met ton nom !!!" />
+    <!-- Bouton pour lancer le jeu -->
+    <button onclick="startGame()" class="start-button">Jouer</button>
+
+    <!-- Petite case d'information intégrée -->
+    <div class="info-box" onclick="toggleInfo()">
+      <p class="info-title"> Infos sur le jeu :</p>
+      <div class="info-content">
+        <p>🎮 Jeu éducatif de mathématiques</p>
+        <p>👩‍🏫 Créé par la classe de Première 3 en NSI: chef de projet: Iskandar Arabov</p>
+        <p>🌍 Plonge dans un monde interactif et amusant</p>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="game"></canvas>
+
+  <!-- Script principal -->
+  <script type="module" src="script.js"></script>
+
+  <!-- Script supplémentaire pour gérer l'accueil -->
+  <script>
+    
+    function startGame() {
+      const username = document.getElementById("username").value.trim();
+      
+      if (!username) {
+        alert("Veuillez entrer un pseudo avant de jouer !");
+        return;
+      }
+
+      // On stocke le pseudo dans le localStorage pour l'utiliser plus tard
+      localStorage.setItem("username", username);
+
+      // Cache l'écran d'accueil
+      document.querySelector('.landing-container').style.display = 'none';
+    }
+
+    function toggleInfo() {
+      const infoBox = document.querySelector('.info-box');
+      const infoContent = document.querySelector('.info-content');
+
+      if (infoContent.style.display === "none" || infoContent.style.display === "") {
+        infoContent.style.display = "block";
+        infoBox.classList.add("open");
+      } else {
+        infoContent.style.display = "none";
+        infoBox.classList.remove("open");
+      }
+    }
+  </script>
+
 </body>
 </html>
