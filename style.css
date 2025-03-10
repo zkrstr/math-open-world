@@ -42,3 +42,124 @@ input[type="text"] {
   font-size: 1.2rem;
 }
 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  /* Container qui recouvre tout l'écran au démarrage */
+  .landing-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/background.jpg") no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Par-dessus le canvas */
+  }
+  
+  /* Effet 3D sur le titre */
+  .title-3d {
+    font-size: 4rem;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-shadow:
+      0 1px 0 #ccc,
+      0 2px 0 #c9c9c9,
+      0 3px 0 #bbb,
+      0 4px 0 #b9b9b9,
+      0 5px 0 #aaa,
+      0 6px 1px rgba(0, 0, 0, 0.1),
+      0 0 5px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(0, 0, 0, 0.3),
+      0 3px 5px rgba(0, 0, 0, 0.2),
+      0 5px 10px rgba(0, 0, 0, 0.25),
+      0 10px 10px rgba(0, 0, 0, 0.2),
+      0 20px 20px rgba(0, 0, 0, 0.15);
+    transform: perspective(400px) rotateX(10deg);
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 80%;
+  }
+  
+  /* Bouton de démarrage du jeu */
+  .start-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #d0ff00f3; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 255, 85, 0.925); /*  effet pétillant dans tout les sens */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .start-button:hover {
+    transform: scale(1.05);
+    background-color: #d0ff00f3; 
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.8);
+  }
+  /* saisie du prénom */
+.username-input {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #d0ff00f3;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+/* Mettre en surbrillance au focus */
+.username-input:focus {
+  border-color: #d0ff00f3;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+/* Petite case d'information intégrée */
+.info-box {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  padding: 12px;
+  background-color: rgba(179, 255, 0, 0.856); 
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenu caché au départ */
+.info-content {
+  display: none;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* Effet quand on clique */
+.info-box.open {
+  width: 260px;
+  padding: 15px;
+  background-color: rgba(187, 255, 0, 0.822); /* Orange stylé */
+}
